@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="kw_vivid_cerulean">#00AADD</color>
+
+    <color name="bmi_color_empty">#000000</color>
+    <color name="bmi_color_underweight">#36c</color> <!-- lapis lazuli -->
+    <color name="bmi_color_normal">#00a693</color> <!-- grynszpan -->
+    <color name="bmi_color_overweight">#f4c430</color> <!-- szafranowy -->
+    <color name="bmi_color_obese">#c04000</color> <!-- mahoniowy -->
+    <color name="bmi_color_extremely_obese">#b80000</color> <!-- róż pompejański -->
+
+    <color name="bmi_color_info_bmivalue">#ffffff</color>
+</resources>

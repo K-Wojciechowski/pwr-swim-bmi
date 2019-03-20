@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">BMI</string>
+    <string name="bmi_mass_kg">Mass [kg]</string>
+    <string name="bmi_height_cm">Height [cm]</string>
+    <string name="bmi_mass_lb">Mass [lb]</string>
+    <string name="bmi_height_in">Height [in]</string>
+    <string name="bmi_units_changed_to_metric">Units changed to metric (kg/cm).</string>
+    <string name="bmi_units_changed_to_imperial">Units changed to imperial (lb/in).</string>
+    <string name="btn_calculate">Calculate</string>
+    <string name="bmi_empty_value">0.00</string>
+    <string name="bmi_classification_empty">Unknown</string>
+    <string name="bmi_classification_unknown">Unknown</string>
+    <string name="bmi_classification_underweight">Underweight</string>
+    <string name="bmi_classification_normal">Normal</string>
+    <string name="bmi_classification_overweight">Overweight</string>
+    <string name="bmi_classification_obese">Obese</string>
+    <string name="bmi_classification_extremely_obese">Extremely Obese</string>
+    <string name="bmi_invalid_value">\?</string>
+    <string name="bmi_menu_about_me">About me</string>
+    <string name="bmi_menu_change_units">Change units</string>
+    <string name="bmi_error_invalid_mass">Invalid mass</string>
+    <string name="bmi_error_invalid_height">Invalid height</string>
+    <string name="bmi_about_name">Author: Krzysztof Wojciechowski</string>
+    <string name="bmi_about_colors">Colors!</string>
+    <string name="bmi_about_click_me">Click me!</string>
+    <string name="bmi_about_click_zero">Click the button below.</string>
+    <string name="bmi_about_clicked_n_times">Clicked %d times.</string>
+    <string name="bmi_longtext_empty">Make sure to provide valid mass and height to get a BMI reading. Note that BMI
+        does not make sense for some values.
+    </string>
+    <string name="bmi_longtext_underweight">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+    </string>
+    <string name="bmi_longtext_normal">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat.
+    </string>
+    <string name="bmi_longtext_overweight">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+        eu fugiat nulla pariatur.
+    </string>
+    <string name="bmi_longtext_obese">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+    </string>
+    <string name="bmi_longtext_extremely_obese">Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil
+        impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor
+        repellendus.
+    </string>
+</resources>

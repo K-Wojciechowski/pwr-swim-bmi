@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bmi_activity_margin">16dp</dimen>
+    <dimen name="bmi_about_name_size">24sp</dimen>
+    <dimen name="bmi_margin_label_end">8dp</dimen>
+    <dimen name="bmi_margin_label_start">8dp</dimen>
+    <dimen name="bmi_margin_edit_start">8dp</dimen>
+    <dimen name="bmi_margin_edit_end">8dp</dimen>
+    <dimen name="bmi_margin_label_top">8dp</dimen>
+    <dimen name="bmi_margin_button_end">8dp</dimen>
+    <dimen name="bmi_margin_button_start">8dp</dimen>
+    <dimen name="bmi_margin_result_box">8dp</dimen>
+    <dimen name="bmi_height_result">32sp</dimen>
+    <dimen name="bmi_textsize_result">24sp</dimen>
+    <dimen name="bmi_margin_fab_start">4dp</dimen>
+    <dimen name="bmi_textsize_info_result">48sp</dimen>
+    <dimen name="bmi_padding_info_topbar">4dp</dimen>
+    <dimen name="bmi_textsize_info_classification">24sp</dimen>
+    <dimen name="bmi_margin_info_text_top">8dp</dimen>
+</resources>
