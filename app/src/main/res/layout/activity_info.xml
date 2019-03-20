@@ -29,5 +29,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/bmi_info_longtext" android:layout_marginTop="@dimen/bmi_margin_info_text_top"
             android:layout_below="@+id/bmi_info_number" android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp" android:layout_alignParentEnd="true" android:layout_marginEnd="0dp"/>
+            android:layout_marginStart="@dimen/bmi_margin_info_longtext" android:layout_alignParentEnd="true" android:layout_marginEnd="@dimen/bmi_margin_info_longtext"/>
 </RelativeLayout>

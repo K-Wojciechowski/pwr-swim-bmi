@@ -17,4 +17,5 @@
     <dimen name="bmi_padding_info_topbar">4dp</dimen>
     <dimen name="bmi_textsize_info_classification">24sp</dimen>
     <dimen name="bmi_margin_info_text_top">8dp</dimen>
+    <dimen name="bmi_margin_info_longtext">0dp</dimen>
 </resources>
