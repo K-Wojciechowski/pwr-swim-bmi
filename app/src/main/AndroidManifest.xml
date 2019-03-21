@@ -9,12 +9,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".InfoActivity"
-                  android:parentActivityName=".MainActivity"
-        >
+        <activity
+                android:name=".HistoryActivity"
+                android:label="@string/bmi_activity_history"
+                android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+                android:name=".InfoActivity"
+                android:label="@string/bmi_activity_info"
+                android:parentActivityName=".MainActivity">
         </activity>
         <activity
                 android:name=".AboutMeActivity"
+                android:label="@string/bmi_activity_about_me"
                 android:parentActivityName=".MainActivity"
                 android:theme="@style/AboutTheme">
         </activity>

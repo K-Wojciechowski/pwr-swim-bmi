@@ -44,4 +44,12 @@
         impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor
         repellendus.
     </string>
+    <string name="bmi_history_mass_and_height_metric">%d kg, %d cm</string>
+    <string name="bmi_history_mass_and_height_imperial">%d lb, %d in</string>
+    <string name="bmi_history_date_placeholder">Date</string>
+    <string name="bmi_menu_history">History</string>
+    <string name="bmi_activity_about_me">About Me</string>
+    <string name="bmi_activity_info">Info</string>
+    <string name="bmi_activity_history">History</string>
+    <string name="bmi_history_prefs_name">bmi_history</string>
 </resources>

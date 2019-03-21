@@ -14,8 +14,11 @@
     <dimen name="bmi_textsize_result">24sp</dimen>
     <dimen name="bmi_margin_fab_start">4dp</dimen>
     <dimen name="bmi_textsize_info_result">48sp</dimen>
+    <dimen name="bmi_textsize_history_result">28sp</dimen>
     <dimen name="bmi_padding_info_topbar">4dp</dimen>
     <dimen name="bmi_textsize_info_classification">24sp</dimen>
     <dimen name="bmi_margin_info_text_top">8dp</dimen>
     <dimen name="bmi_margin_info_longtext">0dp</dimen>
+    <dimen name="bmi_history_margin">4dp</dimen>
+    <dimen name="bmi_history_size">36dp</dimen>
 </resources>
