@@ -1,13 +1,13 @@
 package pl.krzysztofwojciechowski.bmi
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_about_me.*
 
 class AboutMeActivity : AppCompatActivity() {
-    var counter = 0
+    private var counter = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about_me)
@@ -32,14 +32,14 @@ class AboutMeActivity : AppCompatActivity() {
         outState?.putBoolean("about_colors", bmi_about_colors.isChecked)
     }
 
-    fun setCounterText() {
+    private fun setCounterText() {
         if (counter > 0)
             bmi_about_counter.text = getString(R.string.bmi_about_clicked_n_times, counter)
         else
             bmi_about_counter.setText(R.string.bmi_about_click_zero)
     }
 
-    fun setColors(isChecked: Boolean) {
+    private fun setColors(isChecked: Boolean) {
         if (isChecked) {
             bmi_about_name.setBackgroundResource(R.color.kw_vivid_cerulean)
             bmi_about_name.setTextColor(Color.WHITE)

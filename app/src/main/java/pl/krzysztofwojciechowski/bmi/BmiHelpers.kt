@@ -3,8 +3,9 @@ package pl.krzysztofwojciechowski.bmi
 import java.text.DecimalFormat
 
 fun formatBmiForDisplay(bmi: Double): String {
-    return DecimalFormat("#.##").format(bmi)
+    return DecimalFormat("0.00").format(bmi)
 }
+
 fun bmiToStringRes(bmi: Double): Int {
     return when {
         bmi <= 0   -> R.string.bmi_classification_empty

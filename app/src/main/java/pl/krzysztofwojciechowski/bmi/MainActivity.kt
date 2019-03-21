@@ -1,18 +1,20 @@
 package pl.krzysztofwojciechowski.bmi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import pl.krzysztofwojciechowski.bmi.logic.Bmi
 import pl.krzysztofwojciechowski.bmi.logic.BmiForKgCm
 import pl.krzysztofwojciechowski.bmi.logic.BmiForLbIn
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private var bmiValue = 0.0
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         editMass.setText(savedInstanceState?.getString("mass") ?: "")
         editHeight.setText(savedInstanceState?.getString("height") ?: "")
-        editHeight.setOnEditorActionListener() { _, actionId, _ ->
+        editHeight.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 calculateBmiFromUI()
                 false
@@ -62,6 +64,11 @@ class MainActivity : AppCompatActivity() {
                 setUnitLabels()
                 calculateBmiFromUI(true)
                 showUnitChangeMessage()
+                true
+            }
+            R.id.bmi_menu_history -> {
+                val historyIntent = Intent(this, HistoryActivity::class.java)
+                startActivity(historyIntent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -125,6 +132,7 @@ class MainActivity : AppCompatActivity() {
             bmiValue = bmiClass.countBmi()
             setValueTextAndColor()
             setClassification()
+            saveHistory(bmiValue, mass, height, usesMetric)
         } catch (i: IllegalArgumentException) {
             if (i.message == "mass") editMass.error = getString(R.string.bmi_error_invalid_mass)
             if (i.message == "height") editHeight.error = getString(R.string.bmi_error_invalid_height)
@@ -133,6 +141,25 @@ class MainActivity : AppCompatActivity() {
             labelValue.setText(R.string.bmi_invalid_value)
             labelClassification.setText(R.string.bmi_classification_unknown)
         }
+    }
+
+    private fun saveHistory(bmiValue: Double, mass: Int, height: Int, usesMetric: Boolean) {
+        val time = Calendar.getInstance().time
+        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK)
+        val date = format.format(time)
+        val entry = HistoryEntry(bmiValue, mass, height, usesMetric, date)
+
+        // run in the background. The method is synchronized to avoid losing data.
+        Thread { addToHistory(entry) }.start()
+    }
+
+    @Synchronized
+    private fun addToHistory(entry: HistoryEntry) {
+        val prefs = getPrefs(this)
+        var history = readHistory(prefs)
+        if (history.size == 10) history = history.subList(1, history.size)
+        history.add(entry)
+        saveHistory(history, prefs)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -146,6 +173,7 @@ class MainActivity : AppCompatActivity() {
         labelValue.text = formatBmiForDisplay(bmiValue)
         setValueColor()
     }
+
     private fun setValueColor() {
         labelValue.setTextColor(ContextCompat.getColor(applicationContext, bmiToColorRes(bmiValue)))
     }
