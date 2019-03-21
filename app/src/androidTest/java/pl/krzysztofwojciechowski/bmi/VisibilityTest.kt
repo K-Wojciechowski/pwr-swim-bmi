@@ -25,12 +25,12 @@ class VisibilityTest {
         pressBack() // hide keyboard
 
         val ids = listOf(
-            R.id.imageView,
-            R.id.labelMass,
-            R.id.labelHeight,
-            R.id.labelValue,
-            R.id.labelClassification,
-            R.id.btnCalculate
+            R.id.bmi_main_image,
+            R.id.bmi_main_label_mass,
+            R.id.bmi_main_label_height,
+            R.id.bmi_main_label_value,
+            R.id.bmi_main_label_classification,
+            R.id.bmi_main_btn_calculate
         )
         ids.forEach { onView(withId(it)).check(matches(isDisplayed())) }
     }

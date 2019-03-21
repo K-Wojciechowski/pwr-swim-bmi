@@ -28,9 +28,9 @@ class HistoryTest {
 
     @Test
     fun historyTest() {
-        val editMass = onView(withId(R.id.editMass))
-        val editHeight = onView(withId(R.id.editHeight))
-        val btnCalculate = onView(withId(R.id.btnCalculate))
+        val editMass = onView(withId(R.id.bmi_main_edit_mass))
+        val editHeight = onView(withId(R.id.bmi_main_edit_height))
+        val btnCalculate = onView(withId(R.id.bmi_main_btn_calculate))
 
         editMass.perform(scrollTo(), replaceText("55"))
         editHeight.perform(scrollTo(), replaceText("180"), pressImeActionButton())

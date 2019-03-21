@@ -28,10 +28,10 @@ class UnitChangeTest {
 
     @Test
     fun unitChangeTest() {
-        val editMass = onView(withId(R.id.editMass))
+        val editMass = onView(withId(R.id.bmi_main_edit_mass))
         editMass.perform(scrollTo(), replaceText("65"), closeSoftKeyboard())
 
-        val editHeight = onView(withId(R.id.editHeight))
+        val editHeight = onView(withId(R.id.bmi_main_edit_height))
         editHeight.perform(scrollTo(), replaceText("170"))
         editHeight.perform(pressImeActionButton())
 
@@ -75,16 +75,16 @@ class UnitChangeTest {
         )
         changeUnits.perform(click())
 
-        val labelMass = onView(withId(R.id.labelMass))
+        val labelMass = onView(withId(R.id.bmi_main_label_mass))
         labelMass.check(matches(withText("Mass [lb]")))
 
-        val labelHeight = onView(withId(R.id.labelHeight))
+        val labelHeight = onView(withId(R.id.bmi_main_label_height))
         labelHeight.check(matches(withText("Height [in]")))
 
-        val labelValue = onView(withId(R.id.labelValue))
+        val labelValue = onView(withId(R.id.bmi_main_label_value))
         labelValue.check(matches(withText("0.00")))
 
-        val labelClassification = onView(withId(R.id.labelClassification))
+        val labelClassification = onView(withId(R.id.bmi_main_label_classification))
         labelClassification.check(matches(withText("Unknown")))
     }
 

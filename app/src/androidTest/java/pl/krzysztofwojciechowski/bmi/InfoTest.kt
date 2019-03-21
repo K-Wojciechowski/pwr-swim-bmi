@@ -22,15 +22,15 @@ class InfoTest {
 
     @Test
     fun infoTest() {
-        val editMass = onView(withId(R.id.editMass))
+        val editMass = onView(withId(R.id.bmi_main_edit_mass))
         editMass.perform(scrollTo(), replaceText("60"), closeSoftKeyboard())
         editMass.perform(pressImeActionButton())
 
-        val editHeight = onView(withId(R.id.editHeight))
+        val editHeight = onView(withId(R.id.bmi_main_edit_height))
         editHeight.perform(scrollTo(), replaceText("190"), closeSoftKeyboard())
         editHeight.perform(pressImeActionButton())
 
-        val fab = onView(withId(R.id.fab))
+        val fab = onView(withId(R.id.bmi_main_fab))
         fab.perform(scrollTo(), click())
 
         val number = onView(withId(R.id.bmi_info_number))

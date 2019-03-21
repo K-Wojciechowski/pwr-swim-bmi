@@ -22,19 +22,19 @@ class BasicUsageTest {
 
     @Test
     fun basicUsageTest() {
-        val editMass = onView(withId(R.id.editMass))
+        val editMass = onView(withId(R.id.bmi_main_edit_mass))
         editMass.perform(scrollTo(), replaceText("65"), closeSoftKeyboard())
 
-        val editHeight = onView(withId(R.id.editHeight))
+        val editHeight = onView(withId(R.id.bmi_main_edit_height))
         editHeight.perform(scrollTo(), replaceText("170"), closeSoftKeyboard())
 
-        val btnCalculate = onView(withId(R.id.btnCalculate))
+        val btnCalculate = onView(withId(R.id.bmi_main_btn_calculate))
         btnCalculate.perform(scrollTo(), click())
 
-        val labelValue = onView(withId(R.id.labelValue))
+        val labelValue = onView(withId(R.id.bmi_main_label_value))
         labelValue.check(matches(withText("22.49")))
 
-        val labelClassification = onView(withId(R.id.labelClassification))
+        val labelClassification = onView(withId(R.id.bmi_main_label_classification))
         labelClassification.check(matches(withText("Normal")))
 
         editHeight.perform(scrollTo(), replaceText("160"))

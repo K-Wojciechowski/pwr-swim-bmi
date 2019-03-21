@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        editMass.setText(savedInstanceState?.getString("mass") ?: "")
-        editHeight.setText(savedInstanceState?.getString("height") ?: "")
-        editHeight.setOnEditorActionListener { _, actionId, _ ->
+        bmi_main_edit_mass.setText(savedInstanceState?.getString("mass") ?: "")
+        bmi_main_edit_height.setText(savedInstanceState?.getString("height") ?: "")
+        bmi_main_edit_height.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 calculateBmiFromUI()
                 false
@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         if (everCalculated) {
             calculateBmiFromUI()
         }
-        btnCalculate.setOnClickListener { calculateBmiFromUI() }
-        fab.setOnClickListener {
+        bmi_main_btn_calculate.setOnClickListener { calculateBmiFromUI() }
+        bmi_main_fab.setOnClickListener {
             val infoIntent = Intent(this, InfoActivity::class.java)
             infoIntent.putExtra("bmiValue", bmiValue)
             startActivity(infoIntent)
@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.bmi_menu_change_units -> {
-                editMass.setText("")
-                editHeight.setText("")
+                bmi_main_edit_mass.setText("")
+                bmi_main_edit_height.setText("")
                 usesMetric = !usesMetric
                 setUnitLabels()
                 calculateBmiFromUI(true)
@@ -77,11 +77,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUnitLabels() {
         if (usesMetric) {
-            labelMass.setText(R.string.bmi_mass_kg)
-            labelHeight.setText(R.string.bmi_height_cm)
+            bmi_main_label_mass.setText(R.string.bmi_mass_kg)
+            bmi_main_label_height.setText(R.string.bmi_height_cm)
         } else {
-            labelMass.setText(R.string.bmi_mass_lb)
-            labelHeight.setText(R.string.bmi_height_in)
+            bmi_main_label_mass.setText(R.string.bmi_mass_lb)
+            bmi_main_label_height.setText(R.string.bmi_height_in)
         }
     }
 
@@ -95,8 +95,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateBmiFromUI(hideEmptyErrors: Boolean = false) {
-        val massText = editMass.text.toString()
-        val heightText = editHeight.text.toString()
+        val massText = bmi_main_edit_mass.text.toString()
+        val heightText = bmi_main_edit_height.text.toString()
         if ((massText.isBlank() && heightText.isBlank()) || (hideEmptyErrors && (massText.isBlank() || heightText.isBlank()))) {
             bmiValue = 0.0
             setValueTextAndColor()
@@ -109,16 +109,16 @@ class MainActivity : AppCompatActivity() {
         val height: Int
         try {
             mass = massText.toInt()
-            editMass.error = null
+            bmi_main_edit_mass.error = null
         } catch (e: NumberFormatException) {
-            editMass.error = getString(R.string.bmi_error_invalid_mass)
+            bmi_main_edit_mass.error = getString(R.string.bmi_error_invalid_mass)
             return
         }
         try {
             height = heightText.toInt()
-            editHeight.error = null
+            bmi_main_edit_height.error = null
         } catch (e: NumberFormatException) {
-            editHeight.error = getString(R.string.bmi_error_invalid_height)
+            bmi_main_edit_height.error = getString(R.string.bmi_error_invalid_height)
             return
         }
 
@@ -134,12 +134,12 @@ class MainActivity : AppCompatActivity() {
             setClassification()
             saveHistory(bmiValue, mass, height, usesMetric)
         } catch (i: IllegalArgumentException) {
-            if (i.message == "mass") editMass.error = getString(R.string.bmi_error_invalid_mass)
-            if (i.message == "height") editHeight.error = getString(R.string.bmi_error_invalid_height)
+            if (i.message == "mass") bmi_main_edit_mass.error = getString(R.string.bmi_error_invalid_mass)
+            if (i.message == "height") bmi_main_edit_height.error = getString(R.string.bmi_error_invalid_height)
             bmiValue = 0.0
             setValueColor()
-            labelValue.setText(R.string.bmi_invalid_value)
-            labelClassification.setText(R.string.bmi_classification_unknown)
+            bmi_main_label_value.setText(R.string.bmi_invalid_value)
+            bmi_main_label_classification.setText(R.string.bmi_classification_unknown)
         }
     }
 
@@ -164,21 +164,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("mass", editMass.text.toString())
-        outState.putString("height", editHeight.text.toString())
+        outState.putString("mass", bmi_main_edit_mass.text.toString())
+        outState.putString("height", bmi_main_edit_height.text.toString())
         outState.putBoolean("usesMetric", usesMetric)
     }
 
     private fun setValueTextAndColor() {
-        labelValue.text = formatBmiForDisplay(bmiValue)
+        bmi_main_label_value.text = formatBmiForDisplay(bmiValue)
         setValueColor()
     }
 
     private fun setValueColor() {
-        labelValue.setTextColor(ContextCompat.getColor(applicationContext, bmiToColorRes(bmiValue)))
+        bmi_main_label_value.setTextColor(ContextCompat.getColor(applicationContext, bmiToColorRes(bmiValue)))
     }
 
     private fun setClassification() {
-        labelClassification.setText(bmiToStringRes(bmiValue))
+        bmi_main_label_classification.setText(bmiToStringRes(bmiValue))
     }
 }

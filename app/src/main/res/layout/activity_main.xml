@@ -9,61 +9,64 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/constraintLayout">
+            android:id="@+id/bmi_main_toplayout">
         <ImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp" app:srcCompat="@drawable/bmi_img"
-                android:id="@+id/imageView"
+                android:id="@+id/bmi_main_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/guideline" android:scaleType="fitCenter"/>
-        <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                                    android:id="@+id/guideline"
+                app:layout_constraintBottom_toTopOf="@+id/bmi_main_guideline" android:scaleType="fitCenter"
+                android:contentDescription="@string/bmi_main_image_contentdescription"/>
+        <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:id="@+id/bmi_main_guideline"
                                                     android:orientation="horizontal"
                                                     app:layout_constraintGuide_percent="0.3"/>
         <TextView
                 android:text="@string/bmi_mass_kg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/labelMass"
-                app:layout_constraintTop_toTopOf="@+id/guideline" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/bmi_main_label_mass"
+                app:layout_constraintTop_toTopOf="@+id/bmi_main_guideline" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="@dimen/bmi_margin_label_end" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="@dimen/bmi_margin_label_start" app:layout_constraintHorizontal_bias="0.0"
-                android:labelFor="@+id/editMass"/>
+                android:labelFor="@+id/bmi_main_edit_mass"/>
         <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editMass"
+                android:id="@+id/bmi_main_edit_mass"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/bmi_margin_edit_start"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/bmi_margin_edit_end"
-                app:layout_constraintTop_toBottomOf="@+id/labelMass"/>
+                app:layout_constraintTop_toBottomOf="@+id/bmi_main_label_mass"/>
         <TextView
                 android:text="@string/bmi_height_cm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/labelHeight"
+                android:id="@+id/bmi_main_label_height"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="@dimen/bmi_margin_label_end" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="@dimen/bmi_margin_label_start" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/editMass" android:layout_marginTop="@dimen/bmi_margin_label_top"
-                android:labelFor="@+id/editHeight"/>
+                app:layout_constraintTop_toBottomOf="@+id/bmi_main_edit_mass"
+                android:layout_marginTop="@dimen/bmi_margin_label_top"
+                android:labelFor="@+id/bmi_main_edit_height"/>
         <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editHeight"
+                android:id="@+id/bmi_main_edit_height"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/bmi_margin_label_start"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/bmi_margin_label_end"
-                app:layout_constraintTop_toBottomOf="@+id/labelHeight"/>
+                app:layout_constraintTop_toBottomOf="@+id/bmi_main_label_height"/>
         <Button
                 android:text="@string/btn_calculate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnCalculate" android:layout_marginBottom="@dimen/bmi_margin_button_end"
+                android:id="@+id/bmi_main_btn_calculate" android:layout_marginBottom="@dimen/bmi_margin_button_end"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="@dimen/bmi_margin_button_end" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="@dimen/bmi_margin_button_start"/>
@@ -71,34 +74,38 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/bmi_margin_result_box" app:layout_constraintTop_toBottomOf="@+id/editHeight"
-                android:layout_marginBottom="@dimen/bmi_margin_result_box" app:layout_constraintBottom_toTopOf="@+id/btnCalculate"
-                android:layout_marginEnd="@dimen/bmi_margin_result_box" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="@dimen/bmi_margin_result_box"
+                android:layout_marginTop="@dimen/bmi_margin_result_box"
+                app:layout_constraintTop_toBottomOf="@+id/bmi_main_edit_height"
+                android:layout_marginBottom="@dimen/bmi_margin_result_box"
+                app:layout_constraintBottom_toTopOf="@+id/bmi_main_btn_calculate"
+                android:layout_marginEnd="@dimen/bmi_margin_result_box" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/bmi_margin_result_box"
                 app:layout_constraintStart_toStartOf="parent">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/bmi_height_result"
                     android:text="@string/bmi_empty_value"
-                    android:id="@+id/labelValue" android:textSize="@dimen/bmi_textsize_result" android:textAlignment="center"
+                    android:id="@+id/bmi_main_label_value" android:textSize="@dimen/bmi_textsize_result"
+                    android:textAlignment="center"
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/fab"
-                    app:layout_constraintBottom_toTopOf="@+id/labelClassification"/>
+                    app:layout_constraintEnd_toStartOf="@+id/bmi_main_fab"
+                    app:layout_constraintBottom_toTopOf="@+id/bmi_main_label_classification"/>
             <TextView
                     android:text="@string/bmi_classification_empty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/labelClassification"
-                    app:layout_constraintTop_toBottomOf="@+id/labelValue" android:textAlignment="center"
+                    android:id="@+id/bmi_main_label_classification"
+                    app:layout_constraintTop_toBottomOf="@+id/bmi_main_label_value" android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/fab"/>
+                    app:layout_constraintEnd_toEndOf="@+id/bmi_main_fab"/>
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab"
+                    android:id="@+id/bmi_main_fab"
                     android:layout_width="@dimen/bmi_height_result"
                     android:layout_height="@dimen/bmi_height_result"
                     android:src="@drawable/ic_info_button"
-                    app:layout_constraintStart_toEndOf="@+id/labelValue"
-                    app:layout_constraintBottom_toBottomOf="@+id/labelValue"
-                    app:layout_constraintTop_toTopOf="@+id/labelValue" app:fabCustomSize="@dimen/bmi_height_result"
+                    app:layout_constraintStart_toEndOf="@+id/bmi_main_label_value"
+                    app:layout_constraintBottom_toBottomOf="@+id/bmi_main_label_value"
+                    app:layout_constraintTop_toTopOf="@+id/bmi_main_label_value" app:fabCustomSize="@dimen/bmi_height_result"
                     android:layout_marginStart="@dimen/bmi_margin_fab_start" app:layout_constraintEnd_toEndOf="parent"
             />
         </androidx.constraintlayout.widget.ConstraintLayout>
