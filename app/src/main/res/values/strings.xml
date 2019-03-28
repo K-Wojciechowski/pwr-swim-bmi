@@ -51,6 +51,5 @@
     <string name="bmi_activity_about_me">About Me</string>
     <string name="bmi_activity_info">Info</string>
     <string name="bmi_activity_history">History</string>
-    <string name="bmi_history_prefs_name">bmi_history</string>
     <string name="bmi_main_image_contentdescription">BMI classifications</string>
 </resources>

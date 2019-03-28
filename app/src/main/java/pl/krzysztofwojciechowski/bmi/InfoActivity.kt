@@ -9,7 +9,7 @@ class InfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info)
-        bmiValue = intent.getDoubleExtra("bmiValue", 0.0)
+        bmiValue = intent.getDoubleExtra(INTENTEXTRA_BMI_VALUE, 0.0)
         bmi_info_number.text = formatBmiForDisplay(bmiValue)
         bmi_info_number.setBackgroundResource(bmiToColorRes(bmiValue))
         bmi_info_image.setBackgroundResource(bmiToColorRes(bmiValue))

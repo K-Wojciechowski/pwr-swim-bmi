@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 import org.json.JSONArray
 
 fun getPrefs(activity: Activity): SharedPreferences =
-    activity.getSharedPreferences(activity.getString(R.string.bmi_history_prefs_name), Context.MODE_PRIVATE)
+    activity.getSharedPreferences(HISTORY_PREFS_NAME, Context.MODE_PRIVATE)
 
 fun readHistory(prefs: SharedPreferences): MutableList<HistoryEntry> {
     val historyString = prefs.getString("history", null)

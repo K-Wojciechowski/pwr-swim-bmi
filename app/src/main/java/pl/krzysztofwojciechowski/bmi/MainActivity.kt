@@ -23,16 +23,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        bmi_main_edit_mass.setText(savedInstanceState?.getString("mass") ?: "")
-        bmi_main_edit_height.setText(savedInstanceState?.getString("height") ?: "")
+        bmi_main_edit_mass.setText(savedInstanceState?.getString(SIS_MASS) ?: "")
+        bmi_main_edit_height.setText(savedInstanceState?.getString(SIS_HEIGHT) ?: "")
         bmi_main_edit_height.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 calculateBmiFromUI()
                 false
             } else false
         }
-        usesMetric = savedInstanceState?.getBoolean("usesMetric") ?: true
-        everCalculated = savedInstanceState?.getBoolean("everCalculated") ?: false
+        usesMetric = savedInstanceState?.getBoolean(SIS_USES_METRIC) ?: true
+        everCalculated = savedInstanceState?.getBoolean(SIS_EVER_CALCULATED) ?: false
         setUnitLabels()
         if (everCalculated) {
             calculateBmiFromUI()
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         bmi_main_btn_calculate.setOnClickListener { calculateBmiFromUI() }
         bmi_main_fab.setOnClickListener {
             val infoIntent = Intent(this, InfoActivity::class.java)
-            infoIntent.putExtra("bmiValue", bmiValue)
+            infoIntent.putExtra(INTENTEXTRA_BMI_VALUE, bmiValue)
             startActivity(infoIntent)
         }
     }
@@ -134,8 +134,8 @@ class MainActivity : AppCompatActivity() {
             setClassification()
             saveHistory(bmiValue, mass, height, usesMetric)
         } catch (i: IllegalArgumentException) {
-            if (i.message == "mass") bmi_main_edit_mass.error = getString(R.string.bmi_error_invalid_mass)
-            if (i.message == "height") bmi_main_edit_height.error = getString(R.string.bmi_error_invalid_height)
+            if (i.message == INVALID_MASS_MSG) bmi_main_edit_mass.error = getString(R.string.bmi_error_invalid_mass)
+            if (i.message == INVALID_HEIGHT_MSG) bmi_main_edit_height.error = getString(R.string.bmi_error_invalid_height)
             bmiValue = 0.0
             setValueColor()
             bmi_main_label_value.setText(R.string.bmi_invalid_value)
@@ -145,7 +145,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveHistory(bmiValue: Double, mass: Int, height: Int, usesMetric: Boolean) {
         val time = Calendar.getInstance().time
-        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.UK)
+        val format = SimpleDateFormat(DATE_FORMAT, Locale.UK)
         val date = format.format(time)
         val entry = HistoryEntry(bmiValue, mass, height, usesMetric, date)
 
@@ -164,9 +164,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("mass", bmi_main_edit_mass.text.toString())
-        outState.putString("height", bmi_main_edit_height.text.toString())
-        outState.putBoolean("usesMetric", usesMetric)
+        outState.putString(SIS_MASS, bmi_main_edit_mass.text.toString())
+        outState.putString(SIS_HEIGHT, bmi_main_edit_height.text.toString())
+        outState.putBoolean(SIS_USES_METRIC, usesMetric)
+        outState.putBoolean(SIS_EVER_CALCULATED, everCalculated)
     }
 
     private fun setValueTextAndColor() {

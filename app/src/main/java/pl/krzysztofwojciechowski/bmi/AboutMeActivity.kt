@@ -12,8 +12,8 @@ class AboutMeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about_me)
 
-        counter = savedInstanceState?.getInt("about_counter") ?: 0
-        bmi_about_colors.isChecked = savedInstanceState?.getBoolean("about_colors") ?: false
+        counter = savedInstanceState?.getInt(SIS_ABOUT_COUNTER) ?: 0
+        bmi_about_colors.isChecked = savedInstanceState?.getBoolean(SIS_ABOUT_COLORS) ?: false
         setColors(bmi_about_colors.isChecked)
         setCounterText()
 
@@ -28,8 +28,8 @@ class AboutMeActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
         super.onSaveInstanceState(outState, outPersistentState)
-        outState?.putInt("about_counter", counter)
-        outState?.putBoolean("about_colors", bmi_about_colors.isChecked)
+        outState?.putInt(SIS_ABOUT_COUNTER, counter)
+        outState?.putBoolean(SIS_ABOUT_COLORS, bmi_about_colors.isChecked)
     }
 
     private fun setCounterText() {

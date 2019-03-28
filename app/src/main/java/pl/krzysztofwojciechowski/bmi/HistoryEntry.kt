@@ -14,21 +14,21 @@ data class HistoryEntry(
     }
 
     constructor(j: JSONObject) : this(
-        j.getDouble("bmiValue"),
-        j.getInt("mass"),
-        j.getInt("height"),
-        j.getBoolean("usesMetric"),
-        j.getString("date")
+        j.getDouble(JSON_BMI_VALUE),
+        j.getInt(JSON_MASS),
+        j.getInt(JSON_HEIGHT),
+        j.getBoolean(JSON_USES_METRIC),
+        j.getString(JSON_DATE)
     )
 
     fun toJson(): JSONObject {
         return JSONObject(
             mutableMapOf(
-                "bmiValue" to bmiValue,
-                "mass" to mass,
-                "height" to height,
-                "usesMetric" to usesMetric,
-                "date" to date
+                JSON_BMI_VALUE to bmiValue,
+                JSON_MASS to mass,
+                JSON_HEIGHT to height,
+                JSON_USES_METRIC to usesMetric,
+                JSON_DATE to date
             )
         )
     }
