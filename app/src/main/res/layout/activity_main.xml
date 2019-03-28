@@ -41,7 +41,7 @@
                 android:id="@+id/bmi_main_edit_mass"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/bmi_margin_edit_start"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/bmi_margin_edit_end"
-                app:layout_constraintTop_toBottomOf="@+id/bmi_main_label_mass"/>
+                app:layout_constraintTop_toBottomOf="@+id/bmi_main_label_mass" android:maxLength="4"/>
         <TextView
                 android:text="@string/bmi_height_cm"
                 android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
                 android:id="@+id/bmi_main_edit_height"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/bmi_margin_label_start"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/bmi_margin_label_end"
-                app:layout_constraintTop_toBottomOf="@+id/bmi_main_label_height"/>
+                app:layout_constraintTop_toBottomOf="@+id/bmi_main_label_height" android:maxLength="4"/>
         <Button
                 android:text="@string/btn_calculate"
                 android:layout_width="0dp"
